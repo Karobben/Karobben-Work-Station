@@ -6,4 +6,4 @@ NCBI_GSM.py is a scrip for grepping the information from the NCBI database. Sinc
 
 NCBI_GSM.py -i list -o result.csv
 
-fill free
+feel free
