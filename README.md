@@ -16,7 +16,7 @@ Imresize.py -i input.png -w #900 #w=900
 Imresize.py -i input.png -t #900 #h=900
 Imresize.py -i input.png -r 4 #w=w/4, h=h/4
 
-You can resize img/imgs by width(-w), by height(-t), by both(-w -t) or by ratio(-r).
-You can also read one img each time, with default arguments, output file names as "Re_" + input.png.
-You can resize a group of img by using: -i "*.png" (the quotation marks here can not be omitted). The result will be importted to a directory with the same name.
+You can resize img/imgs by width(-w), by height(-t), by both(-w -t) or by ratio(-r).<br>
+You can also read one img each time, with default arguments, output file names as "Re_" + input.png.<br>
+You can resize a group of img by using: -i "*.png" (the quotation marks here can not be omitted). The result will be importted to a directory with the same name.<br>
 You can also read all imgs form a directory(single directory each). The way output is the same as when you read a bunch of img in a time.
