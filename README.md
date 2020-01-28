@@ -1,7 +1,7 @@
 # Karobben-Work-Station
 
-## <a href="#NCBI1">NCBI_GSM.py</a>
-## <a href="#Imresize">Imresize.py</a>
+<a href="#NCBI1">NCBI_GSM.py</a>
+<a href="#Imresize">Imresize.py</a> A light image/imges resize python script for resizing one or a group of img.
 
 ## <div id="NCBI1">NCBI_GSM.py</div>
 
