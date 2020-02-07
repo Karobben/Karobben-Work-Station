@@ -30,7 +30,7 @@ Imresize.py -iReflection_of_the_Kanas_Lake_by_Wang_Jinyu.jpgFailed -w 300
 
 ## <div id="Kivy">Kivy_animation_1.py</div>
 
-This script is orign from tshirtman, https://gist.github.com/tshirtman/5466755.<br>
+This script is origin from tshirtman, https://gist.github.com/tshirtman/5466755.<br>
 I customized it to python3.<br>
 If there has any offensive, please contack me and I will deleted it.
 

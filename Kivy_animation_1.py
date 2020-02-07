@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.7
 
 '''
-This script is orign from tshirtman, https://gist.github.com/tshirtman/5466755,
+This script is origin from tshirtman, https://gist.github.com/tshirtman/5466755,
 If there has any offensive, please contack me and I will deleted it.
 '''
 from kivy.app import App
