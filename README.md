@@ -1,3 +1,5 @@
+
+
 # Karobben-Work-Station
 
 <a href="#GPS">GPS_get.py</a> There are two scripts working in different regions<br>
@@ -19,6 +21,21 @@ GPS-get_geocoder.py is using geocoder lib and it is super elegant. You can print
 And for my personal experience, the result of geocoder is a little better than the result of geojs.
 
 Both scripts should work:
+
+<div style="max-width:  900px;background-color: black;color: #ffffff;padding-left: 5px;font-size: 20px;font-family: monospace;border-radius: 5px 5px 0px 0px;">
+  <img src="../Karobben.github.io/Home/img/Terminal.png" height="30px">
+  R
+  <img src="../Karobben.github.io/Home/img/Terminal2.png" height="30px" align='right' style="padding-right:5px;">
+</div>        
+<pre style='max-width:  900px;background-color: rgb(65, 65, 65);color: rgb(0, 205, 0);padding-left: 5px;font-family: monospace;font-size: 18px;border-radius: 0px 0px 10px 10px; '>
+<code >
+library(ggplot2)
+qplot(x=PC1,y=PC2, data=pc,colour=factor(wine.class))+
+  theme(legend.position="none")+
+  stat_ellipse(lwd=1,level = 0.8)
+</code>
+</pre>
+
 ```
 python3 GPS-get_geojs.py
 python3 GPS-get_geocoder.py
