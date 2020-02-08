@@ -22,21 +22,8 @@ And for my personal experience, the result of geocoder is a little better than t
 
 Both scripts should work:
 
-<div style="max-width:  900px;background-color: black;color: #ffffff;padding-left: 5px;font-size: 20px;font-family: monospace;border-radius: 5px 5px 0px 0px;">
-  <img src="../Karobben.github.io/Home/img/Terminal.png" height="30px">
-  R
-  <img src="../Karobben.github.io/Home/img/Terminal2.png" height="30px" align='right' style="padding-right:5px;">
-</div>        
-<pre style='max-width:  900px;background-color: rgb(65, 65, 65);color: rgb(0, 205, 0);padding-left: 5px;font-family: monospace;font-size: 18px;border-radius: 0px 0px 10px 10px; '>
-<code >
-library(ggplot2)
-qplot(x=PC1,y=PC2, data=pc,colour=factor(wine.class))+
-  theme(legend.position="none")+
-  stat_ellipse(lwd=1,level = 0.8)
-</code>
-</pre>
 
-```
+```bash
 python3 GPS-get_geojs.py
 python3 GPS-get_geocoder.py
 ```
@@ -49,7 +36,7 @@ And you can pin the GPS coordinate on maps in http://www.gpsspg.com/maps.htm
 ## <div id="Imresize">Imresize.py</div>
 
 
-```
+```bash
 Imresize.py -i input.png  #w=w/2, h=h/2
 Imresize.py -i input.png -w #900 #w=900
 Imresize.py -i input.png -t #900 #h=900
@@ -61,7 +48,7 @@ You can resize a group of img by using: -i "\*.png" (the quotation marks here ca
 You can also read all imgs form a directory(single directory each). The way output is the same as when you read a bunch of img in a time.
 
 An example:<br>
-```
+```bash
 Imresize.py -iReflection_of_the_Kanas_Lake_by_Wang_Jinyu.jpgFailed -w 300
 ```
 
@@ -87,9 +74,22 @@ python3.7 Kivy_animation_1.py
 
 This is a simple pixel Squirtle animation in terminal.
 
-```
+```bash
 python3.7 Squirtle.py
 ```
 <p align='center' >
 <img src='img/Squirtle.gif'>
 </p>
+
+
+test：
+
+```flow
+st=>start: Start
+op=>operation: Your Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
