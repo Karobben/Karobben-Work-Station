@@ -47,14 +47,28 @@ You can also read one img each time, with default arguments, output file names a
 You can resize a group of img by using: -i "\*.png" (the quotation marks here can not be omitted). The result will be importted to a directory with the same name.<br>
 You can also read all imgs form a directory(single directory each). The way output is the same as when you read a bunch of img in a time.
 
-An example:<br>
+An example:  
 ```bash
 Imresize.py -iReflection_of_the_Kanas_Lake_by_Wang_Jinyu.jpgFailed -w 300
 ```
 
 <p align='center' >
-<img src='img/Re_Imresize.png'>
+<img src='img/Imresize.jpg'>
 </p>
+
+
+## Update:
+
+```bash
+Imresize.py -i "*" -inf 1
+```
+<p align='center' >
+<img src='img/Img_info.jpg'>
+</p>
+
+
+Update:
+  2020/2/9: Add print information function
 
 ## <div id="Kivy">Kivy_animation_1.py</div>
 
@@ -80,16 +94,3 @@ python3.7 Squirtle.py
 <p align='center' >
 <img src='img/Squirtle.gif'>
 </p>
-
-
-test：
-
-```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
