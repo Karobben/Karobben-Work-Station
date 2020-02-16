@@ -36,6 +36,7 @@ And you can pin the GPS coordinate on maps in http://www.gpsspg.com/maps.htm
 ## <div id="Imresize">Imresize.py</div>
 
 
+### Single Img
 ```bash
 Imresize.py -i input.png  #w=w/2, h=h/2
 Imresize.py -i input.png -w #900 #w=900
@@ -44,20 +45,30 @@ Imresize.py -i input.png -r 4 #w=w/4, h=h/4
 ```
 You can resize img/imgs by width(-w), by height(-t), by both(-w -t) or by ratio(-r).<br>
 You can also read one img each time, with default arguments, output file names as "Re_" + input.png.<br>
-You can resize a group of img by using: -i "\*.png" (the quotation marks here can not be omitted). The result will be importted to a directory with the same name.<br>
+
+### Multiple Images
+You can resize a group of img by using: -i *.png (the quotation marks here can not be omitted). The result will be importted to a directory with the same name.<br>
 You can also read all imgs form a directory(single directory each). The way output is the same as when you read a bunch of img in a time.
 
 An example:  
+
 ```bash
-Imresize.py -iReflection_of_the_Kanas_Lake_by_Wang_Jinyu.jpgFailed -w 300
+Imresize.py -i 1.png 2.png -w 300
+Imresize.py -i *.png  -w 300
+Imresize.py -i img/ -w 300
 ```
 
+### Customizing Output formate
+
+`Imresize.py -i *.png -w 300 -o Re_size -f jpg`
 <p align='center' >
 <img src='img/Imresize.jpg'>
 </p>
 
 
 ## Update:
+
+2020/2/9: Add print information function
 
 ```bash
 Imresize.py -i "*" -inf 1
@@ -67,8 +78,20 @@ Imresize.py -i "*" -inf 1
 </p>
 
 
-Update:
-  2020/2/9: Add print information function
+2020/2/16  
+1. Reading files as a list
+2. Printing inf without extra arguments.  
+3. Formatting all Output files
+
+Printing img(s) inf
+
+`Imresize.py -i * -inf`
+
+Formatting Output images
+
+Output all imgs as jpg formate
+`Imresize2.py -i *.png -f  jpg`
+
 
 ## <div id="Kivy">Kivy_animation_1.py</div>
 
