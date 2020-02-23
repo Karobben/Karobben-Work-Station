@@ -9,13 +9,13 @@ from os.path import getsize
 import PIL.Image as Image
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-i','-I','--input')    #输入文件
+parser.add_argument('-i','-I','--input',nargs='+')    #输入文件
 parser.add_argument('-o','-O','--output',default = "OUT")   #输出文件
 parser.add_argument('-r','-R','--ratio', type = int,default = 2)    #resize ratio
 parser.add_argument('-w','-W','--width',default = "NA") #resize by width
 parser.add_argument('-t','-T','--height',default = "NA")    #resize by Height
 parser.add_argument('-p','-P','--print',default = "None")    #resize by Height
-parser.add_argument('-inf','-INF','--infor',default = "None")    #resize by Height
+parser.add_argument('-inf','-INF','--infor',default = "Not", nargs='?')    #resize by Height
 parser.add_argument('-f','-F','--formatout',default = "Origin")    #resize by Height
 parser.add_argument('-q','-Q','--quality',default = "85")    #resize by Height
 
@@ -45,11 +45,11 @@ def size_format(b):
 
 def FD_judge(path):
     result = ""
-    if "*" in path:
+    if len(path) > 1:
         result = "Files"
-    elif os.path.isdir(path):
+    elif os.path.isdir(path[0]):
         result = "Directory"
-    elif os.path.isfile(path):
+    elif os.path.isfile(path[0]):
         result = "File"
     else:
         result = "path is incorrect"
@@ -83,20 +83,25 @@ def Resize(path,W_img,H_img,R_img):
     Img_out=Img.resize((w,h),Image.ANTIALIAS)
     return Img_out
 
-def Resize_loop():
+def Resize_loop(INPUT,OUTPUT):
     if Typ_in == "File":
         Result = Resize(INPUT,W_img,H_img,R_img)
+        OUTPUT = OUT_fig(INPUT,OUTPUT)
         Result.save(OUTPUT)
     elif Typ_in == "Files":
         List = os.popen("ls "+INPUT).read().split('\n')[:-1]
         for i in List:
             Result = Resize(i,W_img,H_img,R_img)
-            Result.save(OUTPUT + i.split('/')[-1] )
+            OUTPUT = OUT_fig(i,OUTPUT)
+            Result.save(OUTPUT)
     elif Typ_in == "Directory":
         List = os.popen("ls "+INPUT+"/*").read().split('\n')[:-1]
         for i in List:
+            print("INPUT =  ",i)
             Result = Resize(i,W_img,H_img,R_img)
-            Result.save(OUTPUT+i.split('/')[-1] )
+            OUTPUT = args.output
+            OUTPUT = OUT_fig(i,OUTPUT)
+            Result.save(OUTPUT)
 
 def IMG_inf(INPUT):
     Space = size_format(getsize(INPUT))
@@ -126,8 +131,45 @@ def OUT_fig(INPUT,OUTPUT):
         if not os.path.exists(OUTPUT):
             os.makedirs(OUTPUT)
         OUTPUT = OUTPUT +"/"
+    if Typ_in != "File":
+        OUTPUT = OUTPUT+ INPUT.split('/')[-1]
+    '''
+    if Typ_in == "Directory":
+        print("OUT:",INPUT)
+        OUTPUT = OUTPUT+ INPUT.split('/')[-1]
+    print(OUTPUT)
+    '''
+    if Format != "Origin":
+        print("Switch Format")
+        OUT_F = OUTPUT.split('.')[-1]
+        OUTPUT = OUTPUT.replace(OUT_F,Format)
     return OUTPUT
 
+def IMG_Inf(INPUT):
+        if Typ_in == "File":
+            print(IMG_inf(INPUT))
+        elif Typ_in == "Files":
+            #List = os.popen("ls "+INPUT).read().split('\n')[:-1]
+            List = os.popen("ls "+INPUT).read().split('\n\n')[0].split('\n')[:-1]
+            for i in List:
+                print(IMG_inf(i))
+        elif Typ_in == "Directory":
+            List = os.popen("ls "+INPUT+"/*").read().split('\n\n')[0].split('\n')[:-1]
+            for i in List:
+                print(IMG_inf(i))
+
+
+if INFORM == "Not": # Resize
+    Typ_in = FD_judge(INPUT)
+    for i in INPUT:
+        print(Typ_in)
+        Resize_loop(i,OUTPUT)
+else:  # img information
+    Typ_in = FD_judge(INPUT)
+    for i in INPUT:
+        IMG_Inf(i)
+
+'''
 if INFORM == "None": # Resize
     Typ_in = FD_judge(INPUT)
     print(Typ_in)
@@ -146,3 +188,5 @@ else:  # img information
         List = os.popen("ls "+INPUT+"/*").read().split('\n\n')[0].split('\n')[:-1]
         for i in List:
             print(IMG_inf(i))
+
+'''

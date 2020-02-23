@@ -2,6 +2,7 @@
 
 # Karobben-Work-Station
 
+<a href="#Dontouch">DontouchWhite.py</a> A script for playing a web game  
 <a href="#GPS">GPS_get.py</a> There are two scripts working in different regions<br>
 <a href="#Imresize">Imresize.py</a> A light image/imges resize python script for resizing one or a group of img.<br>
 <a href="#Kivy">Kivy_animation_1.py</a> A example of animation in Kivy.<br>
@@ -10,6 +11,14 @@
 
 
 
+
+## <div id="Dontouch">DontouchWhite.py</div>
+
+This script is using PIL to read the img from the screen and using OpenCV to read and find the target bin, and using pynput to click the target.
+
+for more, please go to see:
+
+https://www.bilibili.com/video/av86328254
 
 ## <div id="GPS">GPS_get.py</div>
 
