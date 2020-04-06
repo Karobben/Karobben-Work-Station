@@ -74,7 +74,7 @@ def text_reply(msg):
         B == "纯爷们！！"
     Time_request = time.time() - Time_A
     Lag_time(msg['FromUserName'],msg['Text'],B,Time_request)
-    print(msg)
+    print(msg['FromUserName'],msg['Text'])
     return B
 
 #login
