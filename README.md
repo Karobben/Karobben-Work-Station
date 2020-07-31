@@ -2,12 +2,13 @@
 
 # Karobben-Work-Station
 
-<a href="#Dontouch">DontouchWhite.py</a> A script for playing a web game  
-<a href="#GPS">GPS_get.py</a> There are two scripts working in different regions<br>
-<a href="#Imresize">Imresize.py</a> A light image/imges resize python script for resizing one or a group of img.<br>
-<a href="#Kivy">Kivy_animation_1.py</a> A example of animation in Kivy.<br>
-<a href="#Squirtle">Squirtle.py</a> A simple pixel animation in terminal.<br>
-
+[DontouchWhite.py](#Dontouch): A script for playing a web game  
+[GPS_get.py](#GPS): There are two scripts working in different regions
+[Imresize.py](#Imresize) A light image/imges resize python script for resizing one or a group of img.
+[Kivy_animation_1.py](#Kivy): A example of animation in Kivy.
+[Squirtle.py](#Squirtle): A simple pixel animation in terminal.
+[pikachusay.py](#pikachusay): A simple pixel animation in terminal.
+[txt2pdf](#txt2pdf): A script to convert text file to pdf file.
 
 
 
@@ -70,9 +71,7 @@ Imresize.py -i img/ -w 300
 ### Customizing Output formate
 
 `Imresize.py -i *.png -w 300 -o Re_size -f jpg`
-<p align='center' >
-<img src='img/Imresize.jpg'>
-</p>
+![alhmfU.jpg](https://s1.ax1x.com/2020/07/31/alhmfU.jpg)
 
 
 ## Update:
@@ -82,9 +81,7 @@ Imresize.py -i img/ -w 300
 ```bash
 Imresize.py -i "*" -inf 1
 ```
-<p align='center' >
-<img src='img/Img_info.jpg'>
-</p>
+![alhZkV.jpg](https://s1.ax1x.com/2020/07/31/alhZkV.jpg)
 
 
 2020/2/16  
@@ -112,9 +109,7 @@ If there has any offensive, please contack me and I will deleted it.
 python3.7 Kivy_animation_1.py
 ```
 
-<p align='center' >
-<img src='img/Kivy_anim.gif'>
-</p>
+![Kivy_animation.gif](https://s1.ax1x.com/2020/07/31/alhKl4.gif)
 
 ## <div id="Squirtle">Squirtle.py</div>
 
@@ -123,6 +118,23 @@ This is a simple pixel Squirtle animation in terminal.
 ```bash
 python3.7 Squirtle.py
 ```
-<p align='center' >
-<img src='img/Squirtle.gif'>
-</p>
+[![Squirtle.gif](https://s1.ax1x.com/2020/07/31/alheYT.gif)](https://imgchr.com/i/alheYT)
+
+
+## <div id="pikachusay">pikachusay.py</div>
+
+```bash
+python pikachusay.py "hello world"
+```
+![alhupF.gif](https://s1.ax1x.com/2020/07/31/alhupF.gif)
+
+## <div id="txt2pdf">txt2pdf</div>
+from: [baruchel](https://github.com/baruchel/txt2pdf)
+
+**Quick start**:
+```bash
+txt2pdf -s 12 -o document.pdf document.txt
+
+# -s font size
+# -o output
+```
