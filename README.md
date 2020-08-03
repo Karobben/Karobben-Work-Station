@@ -9,6 +9,7 @@
 [Squirtle.py](#Squirtle): A simple pixel animation in terminal.
 [pikachusay.py](#pikachusay): A simple pixel animation in terminal.
 [txt2pdf](#txt2pdf): A script to convert text file to pdf file.
+[Video_speed.py](#Video_speed): A script to speed up your video by dropping or increasing the frames
 
 
 
@@ -137,4 +138,17 @@ txt2pdf -s 12 -o document.pdf document.txt
 
 # -s font size
 # -o output
+```
+
+## <div id="Video_speed">Video_speed.py</div>
+A script to speed up your video by dropping or increasing the frames
+
+```python
+Video_speed.py -i input.mpf -o outpu.mp4 -r 20
+
+# -i input video
+# -o output video
+# -r dropping frames by ratio
+# -f fps, default: the same as the origin one
+# -inf show current fps  
 ```
