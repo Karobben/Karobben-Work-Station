@@ -3,16 +3,16 @@
 # @Time    : 2020/08/03
 # @Author  : Karobben
 # @Site    : China
-# @File    : VedioSlice.py
+# @File    : VideoSlice.py
 # @Software: Atom
 
 import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i','-I','--input',
-                    help='Input vedio file')     #输入文件
+                    help='Input Video file')     #输入文件
 parser.add_argument('-o','-U','--output', default = "out_test.avi",
-                    help='Output vedio file, default as "out_test.avi"')     #输出文件
+                    help='Output Video file, default as "out_test.avi"')     #输出文件
 parser.add_argument('-r','-R','--ratio', default = 2,
                     type = int,
                     help='Speed up by ratio, "default = 2"')     #输出文件
@@ -35,8 +35,8 @@ import cv2
 #INPUT = 'bug.avi'
 cap = cv2.VideoCapture(INPUT)
 fps_c = cap.get(cv2.CAP_PROP_FPS)
-Vedio_h = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
-Vedio_w = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+Video_h = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+Video_w = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
 print("Current fps:",fps_c)
 
 
@@ -45,7 +45,7 @@ if fps_o == 0:
     fps_o = fps_c
 
 def Video_speed(cap, OUTPUT):
-    Out_size = (int(Vedio_w),int(Vedio_h))
+    Out_size = (int(Video_w),int(Video_h))
     fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
     videowriter = cv2.VideoWriter(OUTPUT,fourcc,fps_o,Out_size)
 
