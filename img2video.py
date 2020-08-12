@@ -3,7 +3,7 @@
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-i', '-I', '--input', #nargs='+',
+parser.add_argument('-i', '-I', '--input', nargs='+',
                     help='Input Video file')     #输入文件
 parser.add_argument('-o', '-U', '--output',
                     default = "out_test.avi",
