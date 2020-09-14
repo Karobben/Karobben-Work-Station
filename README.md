@@ -188,3 +188,9 @@ B06.4.M13F.YP12098396.B06.S7341.ab1                 D02.167-5.ZmU6-F2.YP12093770
 B07.7.M13F.YP12098397.B07.S7341.ab1                 D03.167-6.ZmU6-F2.YP12093771.D03.s7341.ab1   E11.AP2-NLUC-6.GHmaiNlucR.YP12097740.E11.S7341.ab1     G07.1300-CLUC-W33-5.GHMAI-CLUC-R.YP12097551.G07.S7341.ab1
 B08.10.M13F.YP12098398.B08.S7341.ab1                D04.168-2.ZmU6-F2.YP12093772.D04.s7341.ab1   E12.NAC56-1300-1.GHmaiNlucR.YP12097741.E12.S7341.ab1   G08.1300-CLUC-W33-6.GHMAI-CLUC-F.YP12097552.G08.S7341.ab1
 </pre>
+
+# abi_plot.py
+This script is for plotting ab1 result. So, You need a directory with ab1 files.
+
+# Statistic.R
+This is my personal script. Just ignore it, please. I'll delete it later
