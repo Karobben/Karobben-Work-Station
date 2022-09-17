@@ -31,10 +31,10 @@ MyWidget:
             rgba: self.color
         Line:
             points: self.points and list(chain(*self.points)) or []
-            width: 5
+            width: 0.1
         Line:
             points: self.points and list(chain(* ((x, self.top - y) for (x, y) in self.points))) or []
-            width: 5
+            width: 0.1
 '''
 
 

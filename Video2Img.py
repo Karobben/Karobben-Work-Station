@@ -11,20 +11,18 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-i','-I','--input',
                     help='Input Video file')     #输入文件
-parser.add_argument('-o','-U','--output', default = "out_test.avi",
+parser.add_argument('-o','-U','--output', default = "img_OUT",
                     help='Output Video file, default as "out_test.avi"')     #输出文件
-parser.add_argument('-r','-R','--ratio', default = 2,
+parser.add_argument('-r','-R','--ratio', default = 1,
                     type = int,
                     help='Speed up by ratio, "default = 2"')     #输出文件
 parser.add_argument('-f','-F','--fps', default = 0,
                     type = int,
-                    help='Frame per second')
-
+                    help='Speed up by ratio, "default = 2"')     #输出文件
+parser.add_argument('-inf', nargs='?',default=True)
 parser.add_argument('-s','-S','--splice', default = False,
                     type = str,
                     help='splice: -s 0,100')     #输出文件
-
-parser.add_argument('-inf', nargs='?',default=True)
 
 #获取参数
 args = parser.parse_args()
@@ -36,7 +34,9 @@ Splice = args.splice
 inf = args.inf
 
 
-import cv2
+import cv2, os
+
+
 
 #INPUT = 'bug.avi'
 cap = cv2.VideoCapture(INPUT)
@@ -50,28 +50,20 @@ print("Current fps:",fps_c)
 if fps_o == 0:
     fps_o = fps_c
 
-def Video_speed(cap, OUTPUT, Splice):
-    Out_size = (int(Video_w),int(Video_h))
-    fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
-    videowriter = cv2.VideoWriter(OUTPUT,fourcc,fps_o,Out_size)
 
-    i = 0
-    ret = True
-    while ret == True:
-        i +=1
-        ret,frame=cap.read()
-        if Splice:
-            S_E = [int(i) for i in Splice.split(",")]
-            if i > S_E[0] and i < S_E[-1]:
-                if i % Ratio == 0:
-                    videowriter.write(frame)
-            if i > S_E[-1]:
-                break
-        else:
+
+def Video_speed(cap, OUTPUT):
+    if Splice:
+        S_E = [int(i) for i in Splice.split(",")]
+        i = S_E[0]
+        while i < S_E[-1]:
             if i % Ratio == 0:
-                videowriter.write(frame)
+                cap.set(1, i-1)
+                ret,frame=cap.read()
+                Video = INPUT.split('/')[-1]
+                cv2.imwrite(OUTPUT+"/" +Video+"_" +str(i)+"_.png" ,frame)
+            i +=1
 
-    videowriter.release()
 
 if inf == True:
-    Video_speed(cap, OUTPUT, Splice)
+    Video_speed(cap, OUTPUT)
