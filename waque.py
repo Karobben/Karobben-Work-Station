@@ -13,7 +13,6 @@ INPUT = args.input
 Token = args.token
 Category = args.category
 
-import threading
 import concurrent.futures
 import yaml
 import requests
@@ -50,7 +49,7 @@ def MDbody_clean(MD_body):
   except:
       PRE = "<pre>"
       print(PRE, "IAMHERE")
-  print(MD_body)
+  #print(MD_body)
   MD_body = MD_body.replace("<pre>", '```text')
   MD_body = MD_body.replace("</pre>", '```')
   # 添加封面圖片
@@ -93,7 +92,7 @@ def MDupDate(MD, Repos_ID, Doc_list):
   F  = open(MD,'r').read()
   Data_header = yaml.load(F.split('---')[1], Loader=yaml.FullLoader)
   # find the ID by slug/url
-  if Data_header['url'] in [x['slug'] for x in Doc_list]:
+  if Data_header['url'].lower() in [x['slug'] for x in Doc_list]:
     # 如果有單獨指定語雀標題：
     try:
         if Data_header['ytitle'] ==  "" :
@@ -104,14 +103,15 @@ def MDupDate(MD, Repos_ID, Doc_list):
         Title = Data_header['title']
     data = {
     #'id': 我不想指定， 還是隨機吧
-    'slug': Data_header['url'], # 這個還是最好要一個。 這個是網址
+    'slug': Data_header['url'].lower(), # 這個還是最好要一個。 這個是網址
     'title': Title, # 這就不用多說了吧。
     'format': 'markdown',  # 這必須markdown 呀
     'body': MDbody_clean(F),
     'status': "1" # 0 是草稿， 直接發佈把
     }
-    Doc_ID = [x['id'] for x in Doc_list][[x['slug'] for x in Doc_list].index(Data_header['url'])]
-    header = {"X-Auth-Token": Identity['Token']}
+    Doc_ID = [x['id'] for x in Doc_list][[x['slug'] for x in Doc_list].index(Data_header['url'].lower())]
+    header = {"X-Auth-Token": Identity['Token'],
+                "Verb": "GET"}
     url = 'https://www.yuque.com/api/v2/repos/'+str(Repos_ID)+'/docs/'+ str(Doc_ID)
     Doc_Result = requests.put(url, data = data, headers = header).json()['data']
     print(MD,"is updated")
@@ -132,7 +132,7 @@ def run(MD):
     print("目錄:", Cate_state)
     try:
       Data_header = yaml.load(open(MD,'r').read().split('---')[1], Loader=yaml.FullLoader)
-      if Data_header['url'] not in Cate_reuslt and Cate_state == "導入成功" :
+      if Data_header['url'].lower() not in Cate_reuslt and Cate_state == "導入成功" :
           print(MD +' \033[91m', "該文檔未加入目錄", '\033[0m')
       MDupDate(MD, Repos_ID, Doc_list)
     except:
@@ -145,7 +145,6 @@ Identity = Yml_json('yuque.yml')
 Identity.update({'Token':Token})
 Repos_ID = ReporsID_get(Identity)
 Doc_list = DocList_get(Repos_ID)
-
 
 for MD in INPUT:
     run(MD)

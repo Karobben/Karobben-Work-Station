@@ -194,3 +194,12 @@ This script is for plotting ab1 result. So, You need a directory with ab1 files.
 
 # Statistic.R
 This is my personal script. Just ignore it, please. I'll delete it later
+
+
+
+# multy_job_bash.py
+This script is for running bash scripts in multiprocessing. An example of test bash script is `multy_job_test.sh`
+
+```bash
+python3 multy_job_bash.py -i test.hs -p 9
+```
