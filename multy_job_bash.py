@@ -12,7 +12,7 @@ args = parser.parse_args()
 INPUT = args.input
 Process = args.process
 
-F = open("test.hs",'r').read().split("\n")
+F = open(INPUT,'r').read().split("\n")
 
 def run(i):
   os.system(i)

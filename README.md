@@ -3,16 +3,24 @@
 # Karobben-Work-Station
 
 [DontouchWhite.py](#Dontouch): A script for playing a web game  
+
 [GPS_get.py](#GPS): There are two scripts working in different regions
+
 [Imresize.py](#Imresize) A light image/imges resize python script for resizing one or a group of img.
+
 [Kivy_animation_1.py](#Kivy): A example of animation in Kivy.
+
 [Squirtle.py](#Squirtle): A simple pixel animation in terminal.
+
 [pikachusay.py](#pikachusay): A simple pixel animation in terminal.
+
 [txt2pdf](#txt2pdf): A script to convert text file to pdf file.
-[Video_speed.py](#Video_speed): A script to speed up your video by dropping or increasing the frames
-[abi_plot.py](#abi_plot): A script to speed up your video by dropping or increasing the frames
 
+[Video_speed.py](#Video_speed): A script to speed up your video by dropping or increasing the frames.
 
+[abi_plot.py](#abi_plot): A script to speed up your video by dropping or increasing the frames.
+
+[multy_job_bash.py](#multy_job_bash): A quick way to run bash scripts in multiprocessing.
 
 
 ## <div id="Dontouch">DontouchWhite.py</div>
@@ -196,10 +204,9 @@ This script is for plotting ab1 result. So, You need a directory with ab1 files.
 This is my personal script. Just ignore it, please. I'll delete it later
 
 
-
-# multy_job_bash.py
+## <div id="multy_job_bash">multy_job_bash.py</div>
 This script is for running bash scripts in multiprocessing. An example of test bash script is `multy_job_test.sh`
 
 ```bash
-python3 multy_job_bash.py -i test.hs -p 9
+python3 multy_job_bash.py -i multy_job_test.sh -p 9
 ```
